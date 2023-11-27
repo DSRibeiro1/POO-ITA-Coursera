@@ -1,0 +1,75 @@
+package Teste;
+
+import java.util.Scanner;
+
+public class Teste {
+	
+	final static int N = 5;
+
+	public static void main(String[] args) {
+		
+		TesteOO test = new TesteOO();
+		
+		lerDados(test);
+		double somaPosit = calcPositi(test);
+		int quantNegat = calcNegativ(test);
+		mostrarPositiNegativ(somaPosit,quantNegat);
+	}
+	
+	public static void lerDados(TesteOO test) {
+		
+		for(test.i=0;test.i<N;test.i++) {
+			
+			Scanner console = new Scanner(System.in);
+			
+			System.out.println("Digite número: ");
+			test.n[test.i] = console.nextDouble();
+			
+		}
+	}
+	
+	public static double calcPositi(TesteOO test) {
+		double soma = 0;
+		
+		for(test.i=0;test.i<N;test.i++) {
+			
+			if(test.n[test.i] > 0) {
+				soma = soma+test.n[test.i];
+			}
+		}
+		return soma;
+	}
+	
+	public static int calcNegativ(TesteOO test) {
+		int quantNegat = 0;
+		for(test.i=0;test.i<N;test.i++) {
+			if(test.n[test.i] < 0) {
+				quantNegat++;
+			}
+		}
+		return quantNegat;
+	}
+		
+	public static void mostrarPositiNegativ(double somaPosit, int quantNegat) {
+		System.out.println("Soma de números positivos: "+somaPosit+
+				"\nQuantidade de números negativos: "+quantNegat);
+	}
+		
+	
+
+	
+
+			
+		
+		
+	
+
+				
+			
+		
+		
+		
+		
+	}
+
+}

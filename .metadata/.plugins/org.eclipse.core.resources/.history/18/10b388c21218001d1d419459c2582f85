@@ -1,0 +1,65 @@
+package mediaFaltas.variaveislocais.vetor;
+import java.util.Scanner;
+public class MediaFaltas {
+
+	
+		public static void main(String[] args) {
+			Aluno alu = new Aluno();
+			lerNotasFaltas(alu);
+			//calcular media;
+			double media = calculaMedia(alu);
+			//mostrar media
+			mostrarMedia(media);
+			// aprov, rec, reprov 
+			mostrarResultado(media, alu.faltas);
+			}
+			public static int lerNotasFaltas(Aluno alu) {
+			Scanner console = new Scanner(System.in);
+			System.out.println("Digite nota1: ");
+			alu.n1 = console.nextDouble();
+			System.out.println("Digite nota2: ");
+			alu.n2 = console.nextDouble();
+			System.out.println("Digite nota3: ");
+			alu.n3 = console.nextDouble();
+			System.out.println("Digite faltas: ");
+			 return console.nextInt();
+			}
+			public static double calculaMedia(Aluno alu) {
+			return (alu.n1+ alu.n2+ alu.n3)/3;
+			}
+
+			public static void mostrarMedia(double media) {
+			System.out.println("Média: "+media);
+			}
+			
+			public static void mostrarResultado(double media, int faltas) {
+			
+			
+				if(media>=7 && faltas <6) {
+			System.out.println("Aprovado");
+			
+				}else if(media>=4 && media<7 && faltas<6) {
+			System.out.println("Recuperação");
+			
+				}else {
+			System.out.println("Reprovado");
+				}
+			}
+}
+			
+			
+
+
+			
+			
+
+
+			
+			
+	
+			
+			
+			
+
+
+	

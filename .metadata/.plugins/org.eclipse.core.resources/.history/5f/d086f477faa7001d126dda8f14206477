@@ -1,0 +1,75 @@
+package aplicacao;
+import java.util.Scanner;
+import modelo.Contato;
+
+public class TesteVetor { //[] Vetor são várias posições na memória
+
+	public static void main(String[] args) {
+		Contato contatos[] = new Contato[3];
+
+		contatos[0] = new Contato();
+		System.out.println(contatos[0]); // mostra conteudo de memória
+		//System.out.println(contatos); // mostra endereço de memória
+
+		contatos[1] = new Contato(2, "Davi", 998407392);
+		System.out.println(contatos[1]);
+
+		contatos[2] = new Contato(3, "Hallan", 88976622);
+		System.out.println(contatos[2]);
+
+		System.out.println("\n\n CONTATOS DO FOR \n");
+		//______________________________________________________________________________________//
+		// Mostra todos os contatos (Todo o conteudo do vetor[])
+
+		for (int i=0; i<3;i++) { 
+			System.out.println(contatos[i]);
+		}
+
+		System.out.println("\n\n CONTATOS DO FOR each\n"); // For each mais aconselhável
+		for(Contato contato : contatos) {
+			System.out.println(contato);
+		}
+
+		// ID DINAMICO
+		Scanner console = new Scanner(System.in);
+		System.out.println("\n\n Verificar se algum contato tem ID= 2+"
+				+ "Se tiver, mostrar o nome e o telefone \n"); 
+		System.out.println("Digite id: ");
+		int idPesquisar = Integer.parseInt(console.nextLine());
+		for(Contato contato : contatos) { 
+			if (contato.getIdContato()== idPesquisar)
+				System.out.println("ACHOU "+
+						"\n Nome = "+contato.getNomeContato()+
+						"\n Fone = "+contato.getFoneContato());
+		}
+
+
+		System.out.println("\n\n Verificar se algum contato tem ID= 2+"
+				+ "Se tiver, mostrar o nome e o telefone \n"); 
+
+		for(int i = 0; i<3; i++) { 
+			if (contatos[i].getIdContato() ==2)
+				System.out.println("ACHOU "+
+						"\n Nome = "+contatos[i].getNomeContato()+
+						"\n Fone = "+contatos[i].getFoneContato());
+		}
+	}
+}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

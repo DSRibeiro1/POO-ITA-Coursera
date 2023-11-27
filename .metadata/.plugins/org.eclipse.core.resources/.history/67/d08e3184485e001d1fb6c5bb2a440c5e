@@ -1,0 +1,77 @@
+import java.util.Scanner;
+
+public class BuscaSequencial {
+
+	public static void main(String[] args) {
+
+		int vetor[] = new int[10];
+
+		vetor[0] = 31;
+		vetor[1] = 16;
+		vetor[2] = 45;
+		vetor[3] = 87;
+		vetor[4] = 37;
+		vetor[5] = 99;
+		vetor[6] = 21;
+		vetor[7] = 43;
+		vetor[8] = 10;
+		vetor[9] = 48;
+
+		// imprime valores
+		for(int i =0; i<vetor.length;i++) {
+			System.out.println(+vetor[i]);
+		}
+
+		Scanner consoleInt = new Scanner(System.in);
+		System.out.println("Qual numero você busca: ");
+		int busca = consoleInt.nextInt();
+
+		boolean achou = false;
+		for(int i =0; i<vetor.length;i++) {
+			if(vetor[i] == busca) {
+				achou = true;;
+				break;
+			}
+		}
+		if(achou == true) {
+			System.out.println("Achou");
+		}else {
+			System.out.println("Não achou");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+/*Crie uma subclasse chamada CompraParcelada que estende a classe Compra. 
+Essa classe deve receber no construtor também as informações da quantidade de parcelas 
+e o juros mensal. Crie uma nova implementação do método total() 
+na subclasse que faz o cálculo utilizando juros compostos.*/
+
+
+
+public class CompraParcelada extends Compra {
+
+	public CompraParcelada() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

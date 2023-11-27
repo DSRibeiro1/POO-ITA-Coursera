@@ -1,0 +1,8 @@
+
+public class CompraParcelada extends Compra {
+
+	public CompraParcelada() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

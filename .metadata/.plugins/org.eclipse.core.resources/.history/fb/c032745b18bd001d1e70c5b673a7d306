@@ -1,0 +1,39 @@
+
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+
+public class TesteCompra {
+	
+	
+	@Test
+	public void testParcelaUm() {
+		Compra com;
+		com = new CompraParcelada(1,100,0);
+		assertEquals(100, com.total(),0);
+		
+		
+	}
+
+	@Test
+	public void testParcelaDois() {
+		Compra com2;
+		com2 = new CompraParcelada(2,100,0.1);
+		assertEquals(202.2, com2.total(),0);
+	}
+	@Test
+	public void testParcelaCinco() {
+		Compra com;
+		com = new CompraParcelada(5,100,0.1);
+		assertEquals(505.5,com.total(),0);
+	}
+	@Test
+	public void testParcelaDez() {
+		Compra com;
+		com = new CompraParcelada(10,100,0.1);
+		assertEquals(1011,com.total(),0);
+	}
+}
+	

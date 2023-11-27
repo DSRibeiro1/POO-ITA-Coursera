@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;Vetor.java&apos; to &apos;insercaoOrdenada.java&apos;&#x0D;&#x0A;- Original project: &apos;Aula 29-10(Vetor)&apos;&#x0D;&#x0A;- Original element: &apos;Vetor.java&apos;&#x0D;&#x0A;- Renamed element: &apos;insercaoOrdenada.java&apos;" description="Rename compilation unit &apos;Vetor.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{Vetor.java" name="insercaoOrdenada.java" references="false" stamp="1667327576188" version="1.0"/>
+</session>

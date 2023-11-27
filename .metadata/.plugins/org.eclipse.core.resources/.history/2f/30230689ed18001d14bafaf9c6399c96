@@ -1,0 +1,84 @@
+package AtividadesDesafios;
+import java.util.Scanner;
+
+public class Q1 {
+
+	public static void main(String[] args) {
+		double[] salFunc = new double[50];
+
+		lerSalario(salFunc);
+		double media = calcMedia(salFunc);
+		int maior = funcMaiorMedia(salFunc, media);
+		int menor = funcMenorMedia(salFunc,media);
+		mostrarResultado(salFunc);
+		mostrarResultado2(media,menor,maior);
+	}
+
+
+	private static void lerSalario(double []salFunc) {
+		Scanner console = new Scanner(System.in);
+
+		for(int i=0;i<=2;i++) {
+			System.out.println(+i+1+". Digite salário: ");
+			salFunc[i] = console.nextDouble();
+
+		}
+	}
+
+	private static double calcMedia(double[] salFunc) {
+		double soma=0;
+
+		for(int i=0;i<=2;i++) {
+			soma = soma+salFunc[i];
+		}
+
+		double media = soma/3;
+
+		return media;
+	}
+
+	private static int funcMaiorMedia(double[] salFunc,double media) {
+		int maior=0;
+		for(int i=0;i<=2;i++) {
+			if(salFunc[i]>= media) {
+				maior++;
+
+			}
+			
+		}
+		return maior;
+	}	
+
+	private static int funcMenorMedia(double[] salFunc,double media) {
+		int menor=0;
+		for(int i=0;i<=2;i++) {
+			if(salFunc[i]< media) {
+				menor++;
+
+			}
+				
+		}
+		return menor;
+	}
+	private static void mostrarResultado(double[] salFunc) {
+		
+		for(int i=0;i>=2;i++) {
+
+		System.out.println("Todos os salários digitados: "+salFunc[i]);
+	}
+}
+	private static void mostrarResultado2(double media, int menor, int maior) {
+		
+		System.out.println("Média: R$"+media+
+				"\nQuantia que recebem maior ou igual a média: "+maior+
+				"\nQuantia que recebem menor que a média: "+menor);
+	}
+}
+
+
+
+
+
+
+
+	

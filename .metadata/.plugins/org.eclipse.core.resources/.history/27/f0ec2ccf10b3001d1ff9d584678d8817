@@ -1,0 +1,24 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TesteCarro {
+
+	@Test
+	public void testCarroParado() {
+		Carro c = new Carro ();
+		assertEquals(0, c.getVelocidade());
+	}
+
+	
+	
+	
+	@Test
+	public void testAcelerar() {
+		Carro c = new Carro ();
+		c.potencia = 10;
+		c.acelera();
+		
+		assertEquals(10, c.getVelocidade());
+	}
+}

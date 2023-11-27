@@ -1,0 +1,68 @@
+package VetorOO;
+
+import java.util.Scanner;
+
+public class Principal {
+	static Scanner consoleStr = new Scanner(System.in);
+	static Scanner console = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		Aluno aluno = new Aluno();
+		menu(aluno);
+		cadastrar(aluno);
+	}
+	private static void menu(Aluno aluno) {
+		int op;
+		do {
+			lerOpcao();
+			switch(op) {
+			case 1: System.out.println(aluno.calcularMedia());
+			break;
+			case 2: System.out.println(aluno.mostrarDados());
+			break;
+			case 3: alterarDados(aluno);
+			break;
+			case 4: System.out.println("Sistema finalizado");
+			}
+		}while(op!=4);
+	}
+	private static void cadastrar(Aluno aluno) {
+		System.out.println("Digite nome: ");
+		aluno.setNomeAluno(consoleStr.nextLine());
+		
+		System.out.println("Digite curso: ");
+		aluno.setCurso(consoleStr.nextLine());
+		
+		System.out.println("Digite matricula: ");
+		aluno.setMatricula(console.nextInt());
+		
+		System.out.println("Digite nota 1: ");
+		aluno.setNota1(console.nextDouble());
+		System.out.println("Digite nota 2: ");
+		aluno.setNota2(console.nextDouble());
+		System.out.println("Digite nota 3: ");
+		aluno.setNota3(console.nextDouble());
+	}
+	private static int lerOpcao() {
+		int op;
+		do {
+			System.out.println("MENU"
+					+ "\n1 - Mostrar média"
+					+ "\n2 - Mostrar dados cadastrados"
+					+ "\n3 - Alterar dados"
+					+ "\n4 - Finalizar o sistema");
+			op = console.nextInt();
+			if(op<1||op>4) {
+				System.out.println("Opção Inválida");
+			}
+		}while(op<1||op>4);
+		return op;
+	}
+		
+	
+	
+	
+	
+	
+		
+	

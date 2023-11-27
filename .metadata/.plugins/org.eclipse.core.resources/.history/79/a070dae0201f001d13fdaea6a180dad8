@@ -1,0 +1,104 @@
+package Teste;
+
+import java.util.Scanner;
+
+public class Teste{
+	
+
+	public static void main(String[]args) {
+		
+		lerDados();
+		
+	}
+	
+	public static void lerDados() {
+		Scanner console = new Scanner(System.in);
+		System.out.println("Digite número inicial da P.A: ");
+		int numI = console.nextInt();
+		System.out.println("Digite razão da P.A: ");
+		int razao = console.nextInt();
+		System.out.println("Digite número de termos da P.A: ");
+		int nTermos = console.nextInt();
+		
+		int PA = calcPA(numI,razao,nTermos);
+		mostrarPA(numI,nTermos,razao,PA);
+		
+	}
+		
+		public static int calcPA(int numI,int razao,int nTermos) {
+			if(nTermos == 1) {
+				return numI;
+			}else {
+				System.out.println(+numI);
+				return numI +(nTermos-1)*razao;
+				
+			}
+		}
+
+		
+		public static void mostrarPA(int numI,int nTermos, int razao,int PA) {
+			System.out.println(" "+numI+razao+"=" +PA);
+			System.out.println("Resultado da PA: "+PA);
+			
+		}
+}
+					
+		
+
+
+				
+			
+
+
+			
+		
+
+
+			
+		
+
+		
+						
+			
+		
+
+
+			
+		
+
+			
+		
+		
+				
+			
+		
+			
+				
+	
+
+			
+		
+	
+	
+		 
+	
+		 
+	
+	
+				 		 
+				 
+			 				 
+				 
+				 
+			 
+		
+		
+	
+	
+
+	
+	
+		
+		
+		
+

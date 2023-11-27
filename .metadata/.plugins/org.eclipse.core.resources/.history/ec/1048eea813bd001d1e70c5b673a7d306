@@ -1,0 +1,25 @@
+/*Crie uma classe chamada Compra que recebe o valor da compra no construtor
+ *  e o armazena em um atributo. Essa classe deve possuir o 
+ * método total() que retorna o valor total da compra.                       */
+
+public class Compra {
+	private double valor;
+
+	public Compra(double valor) {
+		super();
+		this.valor = valor;
+	}
+
+	public double total() {
+		return valor;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+}

@@ -1,0 +1,58 @@
+package aplicacao;
+import java.util.Scanner;
+import modelo.Contato;
+
+public class TesteVetor { //[] Vetor são várias posições na memória
+	static Scanner console = new Scanner(System.in);
+	static Scanner consoleStr = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		
+		Contato contatos[] = new Contato[3];
+	
+		
+		for (Contato contato : contatos) {
+			System.out.println("Digite id: ");
+			contato.setIdContato(console.nextInt());
+			System.out.println("Digite nome contato: ");
+			contato.setNomeContato(consoleStr.next());
+			System.out.println("Digite telefone contato: ");
+			contato.setFoneContato(console.nextInt());
+		}
+		
+		for(Contato contato: contatos) {
+			System.out.println(contato);
+		}
+		for(Contato contato: contatos) {
+			System.out.println("Digite id: ");
+			int pesquisaId = console.nextInt();
+			if(contato.getIdContato() == pesquisaId){
+				System.out.println("MENU"
+						+ "Telefone: "+contato.getFoneContato()
+						+ "Nome: "+contato.getNomeContato());
+			}
+		}
+	}
+}
+		
+	
+			
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

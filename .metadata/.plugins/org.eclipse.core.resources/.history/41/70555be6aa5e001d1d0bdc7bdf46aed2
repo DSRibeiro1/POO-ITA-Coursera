@@ -1,0 +1,53 @@
+package Teste;
+
+import EstruturaDados.Vetor;
+
+public class Aula05 { //Aumenta capacidade vetor
+
+	public static void main(String[] args) {
+		Vetor vetor = new Vetor(3);
+		
+		vetor.adiciona(0, "A");
+		vetor.adiciona(1, "C");
+		vetor.adiciona(2, "D");
+		vetor.adiciona(3, "E");
+		
+		// inserção ordenada
+		vetor.adiciona(1,"B");
+		System.out.println(vetor);
+		
+		//busca sequencial
+		System.out.println("Posição é: "+vetor.busca("D"));
+		
+		//busca posição. Trata exceção
+		System.out.println(vetor.busca(2));
+					
+		//tamanho real
+		System.out.println("Tamanho real vetor: "+vetor.tamanhoReal());
+
+		//remove posição
+		System.out.println("Remover posição 1");
+		System.out.println(vetor); 
+		vetor.remove(1);
+		System.out.println(vetor);
+
+		//remove elemento
+		System.out.println("Remover o elemento E");
+		int pos = vetor.busca("E");
+		if(pos>-1) {
+			vetor.remove(pos);
+		}else {
+			System.out.println("Elemento E não existe no vetor");
+		}
+		System.out.println(vetor);
+		
+	}
+}
+
+
+
+		
+	
+
+
+

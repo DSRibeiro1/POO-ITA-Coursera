@@ -1,0 +1,20 @@
+import org.junit.Before;
+import org.junit.Test;
+
+public class TesteCompra {
+
+	Compra com;
+		
+	@Before
+	public void inicializa() {
+		com = new CompraParcelada(1,100);
+		com.setValor(100);
+	}
+	
+	@Test
+	public void testParcelaUm() {
+		
+		
+	}
+
+}

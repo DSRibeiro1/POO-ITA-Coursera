@@ -1,0 +1,8 @@
+package AtividadesDesafios;
+public class Compra {
+	String[] nomeProd= new String[5];
+	double[] valorProd = new Double[5];
+	int i;
+	
+
+}

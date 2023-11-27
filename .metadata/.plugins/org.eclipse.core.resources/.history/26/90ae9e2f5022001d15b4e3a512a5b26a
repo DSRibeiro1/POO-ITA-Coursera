@@ -1,0 +1,66 @@
+package Teste;
+
+import java.util.Scanner;
+
+public class Teste {
+	
+	final static int N = 5;
+
+	public static void main(String[] args) {
+		
+		TesteOO test = new TesteOO();
+		
+		lerDados(test);
+		double valPagar = calcvalPagar(test);
+		double desconto = calcDesconto(test,valPagar);
+	}
+	
+	public static void lerDados(TesteOO test) {
+		Scanner console = new Scanner(System.in);
+		System.out.println("Digite nome cliente: ");
+		test.cliente = console.nextLine();
+		System.out.println("Digite valor compra: R$");
+		test.valCompra = Double.parseDouble(console.nextLine());
+	}
+	
+	public static double calcvalPagar(TesteOO test) {
+		if(test.valCompra>=1000) {
+			return test.valCompra*0.8;
+			
+		}else {
+			return test.valCompra*0.85;
+		}
+	}
+	public static double calcDesconto(TesteOO test, double valPagar) {
+		return test.valCompra - valPagar;
+	}
+		
+	public static void mostrarVal(TesteOO test, double valPagar, double desconto) {
+		System.out.println("Nome do cliente: "+test.cliente+
+				"\nValor da compra é: R$"+test.valCompra+
+				"\nValor do desconto é: R$"+desconto);
+	}
+}
+	
+		
+	
+		
+			
+		
+		
+			
+
+			
+		
+		
+	
+
+				
+			
+		
+		
+		
+		
+	
+
+

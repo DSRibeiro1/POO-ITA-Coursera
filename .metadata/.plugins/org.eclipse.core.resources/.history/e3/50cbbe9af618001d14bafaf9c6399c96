@@ -1,0 +1,27 @@
+package AtividadesDesafios;
+import java.util.Scanner;
+
+public class Q3 {
+	
+	public static void main(String[]args) {
+		 
+	Compra com = new Compra();
+	
+	lerDados(com);
+	calcPagar(com);
+	mostrarProdVal(com);
+	}
+
+
+	public static void lerDados(Compra com) {
+		Scanner console = new Scanner(System.in);
+		for(com.i=0;com.i<=4;com.i++) {
+		
+			System.out.println("Digite nome do produto: ");
+			com.nomeProd = console.nextLine();
+			System.out.println("Digite valor do produto: R$");
+			com.valorProd = Double.parseDouble(console.nextLine());
+	}
+	
+	public static 
+		

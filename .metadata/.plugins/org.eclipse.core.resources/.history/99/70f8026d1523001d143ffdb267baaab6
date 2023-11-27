@@ -1,0 +1,27 @@
+import java.util.Scanner;
+package FatorOO;
+
+public class Vendas {
+
+	public static void main(String[] args) {
+		 Produto prod[] = new Produto[5];
+		 
+		 inicializarVariavel(prod);
+		 lerDados(prod);
+		 double soma = calcValor(prod);
+		 mostrar(prod,soma);
+	}
+	
+	public static void inicializarVariavel(Produto prod) {
+		for(int i = 0; i<5; i++) {
+			prod[i] = new Produto();
+		}
+	}
+	public static void lerDados(Produto prod) {
+		Scanner console = new Scanner(System.in);
+		for(int i=0; i<5;i++) {
+			System.out.println(+i+1+". Digite nome do produto: ");
+			prod[i].nome = console.nextLine();
+			
+
+}

@@ -1,0 +1,42 @@
+/*Crie uma subclasse chamada CompraParcelada que estende a classe Compra. 
+Essa classe deve receber no construtor também as informações da quantidade de parcelas 
+e o juros mensal. Crie uma nova implementação do método total() 
+na subclasse que faz o cálculo utilizando juros compostos.*/
+
+public class CompraParcelada extends Compra {
+	private int parcela;
+	private double jurosMensal;
+
+	public double getJurosMensal() {
+		return jurosMensal;
+	}
+
+	public void setJurosMensal(double jurosMensal) {
+		this.jurosMensal = jurosMensal;
+	}
+
+	public int getParcela() {
+		return parcela;
+	}
+
+	public void setParcela(int parcela) {
+		this.parcela = parcela;
+	}
+
+	public CompraParcelada(int parcela, double valor, double jurosMensal) {
+		super(valor);
+		this.parcela = parcela;
+		this.jurosMensal = jurosMensal;
+	}
+
+	public double total() {
+		if (this.parcela == 1) {
+			return this.valor;
+		} else if (this.parcela == 2 || this.parcela == 5 || this.parcela == 10) {
+			return this.valor*(Math.pow*(1+ this.jurosMensal + this.parcela));
+		} else {
+			return 0;
+		}
+	}
+
+}

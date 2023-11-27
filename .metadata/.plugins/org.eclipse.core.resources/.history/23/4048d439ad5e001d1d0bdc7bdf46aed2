@@ -1,0 +1,72 @@
+package Teste;
+
+import EstruturaDados.Vetor;
+
+public class Aula05 { //Aumenta capacidade vetor
+
+	public static void main(String[] args) {
+		Vetor vetor = new Vetor(3);
+		
+		vetor.adiciona(0, "A");
+		vetor.adiciona(1, "C");
+		vetor.adiciona(2, "D");
+		vetor.adiciona(3, "E");
+		
+				
+		// inserção ordenada
+		System.out.println("INSERÇÃO ORDENADA");
+		System.out.println(vetor);
+		System.out.println("Adicionar: Posição 1 e elemento B");
+		vetor.adiciona(1,"B");
+		System.out.println(vetor);
+		
+		System.out.println("////////////////////////////////////////");
+		
+		//busca sequencial
+		System.out.println("BUSCA SEQUENCIAL");
+		System.out.println("Busca posição de elemento D");
+		System.out.println("Posição é: "+vetor.busca("D"));
+		
+		System.out.println("////////////////////////////////////////");
+		
+		//busca posição. Trata exceção
+		System.out.println("BUSCA POSIÇÃO. TRATA EXCEÇÃO");
+		System.out.println("Elemento da posição 2:");
+		System.out.println(vetor.busca(2));
+		
+		System.out.println("////////////////////////////////////////");
+					
+		//tamanho real
+		System.out.println(vetor);
+		System.out.println("Tamanho real vetor: "+vetor.tamanhoReal());
+
+		
+		System.out.println("////////////////////////////////////////");
+		//remove posição
+		System.out.println("Remover posição 1");
+		System.out.println(vetor); 
+		vetor.remove(1);
+		System.out.println(vetor);
+
+		System.out.println("////////////////////////////////////////");
+		
+		//remove elemento
+		System.out.println(vetor);
+		System.out.println("Remover o elemento E");
+		int pos = vetor.busca("E");
+		if(pos>-1) {
+			vetor.remove(pos);
+		}else {
+			System.out.println("Elemento E não existe no vetor");
+		}
+		System.out.println(vetor);
+	}
+}
+
+
+
+		
+	
+
+
+

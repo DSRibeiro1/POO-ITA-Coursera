@@ -1,0 +1,221 @@
+package aplicacao;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import dao.ContatoDAO;
+import modelo.Contato;
+
+
+public class AppAgendaContatosBD {
+	private static ContatoDAO contatoDAO = new ContatoDAO();
+
+	public static void main(String[] args) {
+		Scanner ler = new Scanner(System.in);
+		int idContato = 0;
+
+		int op;
+		do {
+			System.out.println(" MENU OPÇÕES "
+					+ "\n 1 - Cadastrar Contato"
+					+ "\n 2 - Mostrar Contatos Cadastrados"
+					+ "\n 3 - Alterar Contato"
+					+ "\n 4 - Excluir Contato"
+					+ "\n 5 - Sair do sistema"
+					+ "\n Digite opção: ");
+			op = ler.nextInt();
+
+			switch(op){
+
+			case 1 :// cadastra contato  (CRUD - Create)
+				//idContato++;
+				//contatos.add(leDadosContato(idContato));
+				try {
+					contatoDAO.salvarDadosBD(leDadosContato());
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+				break;	
+
+			case 2 : // Mostrar Contatos Cadastrados (CRUD -Read)
+				ArrayList<Contato> contatos = new ArrayList<>();
+				try {
+					contatos = contatoDAO.lerDadosBD();
+				} catch (SQLException e) {
+					System.out.println("ERRO AO CARREGAR DADOS DO BANCO");
+				}
+				mostrarContatos(contatos);
+				break;
+
+			case 3 : // Alterar Contato" (CRUD -Update)
+				alterarTelefoneContato();
+				break;
+
+			case 4 : // Excluir Contato" (CRUD - Delete)
+				excluirContato();
+				break;
+
+			case 5 : // Finaliza o Sistema
+				System.out.println("SISTEMA FINALIZADO");
+				break;
+
+			default : // Opção inválida
+				System.out.println("OPÇÃO INVÁLIDA");
+			}
+
+		} while (op != 5);
+
+	}
+
+
+	private static Contato leDadosContato() {
+		Scanner ler = new Scanner(System.in);
+		String nome;
+		int fone;
+		Contato contatoLeitura = new Contato();
+
+		System.out.println("Digite Nome: ");
+		nome = ler.nextLine();
+		System.out.println("Digite Telefone: ");
+		fone = Integer.parseInt(ler.nextLine());
+
+		//contatoLeitura.setIdContato(idcontato);
+		contatoLeitura.setNomeContato(nome);
+		contatoLeitura.setFoneContato(fone);
+
+		return contatoLeitura;
+	}
+
+	private static void mostrarContatos(ArrayList<Contato> contatos) {
+		Contato contato;
+
+		for (int i = 0; i < contatos.size(); i++) {
+			contato = contatos.get(i);
+
+			System.out.println("Dados do contato \n"
+					+ "Código: " + contato.getIdContato() + "\n"
+					+ "Nome: " + contato.getNomeContato() +"\n"
+					+ "Telefone: " + contato.getFoneContato() +"\n"
+					);
+		}
+	}
+
+	private static void alterarTelefoneContato() {
+		Scanner ler = new Scanner(System.in);
+
+		System.out.println("Digite nome contato: ");
+		String nomePesquisar = ler.nextLine();
+
+		try {
+			Contato contato = contatoDAO.pesquisarContatoBD(nomePesquisar);
+			if (contato != null) {
+				mostrarContato(contato);
+
+				System.out.println("Digite novo numero:");
+				int novoTelefone = ler.nextInt();
+				contato.setFoneContato(novoTelefone);
+
+				contatoDAO.alterarContatoBD(contato);
+
+				System.out.println("Dados atualizados");
+
+			} else System.out.println("Contato não cadastrado!!!");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+
+		/*int indiceContato = pesquisarIndiceContato(contatos);
+
+		if (indiceContato >= 0) {
+			mostrarContato(contatos.get(indiceContato));
+			System.out.println("Digite novo numero:");
+			int novoTelefone = ler.nextInt();
+			contatos.get(indiceContato).setFoneContato(novoTelefone);
+			System.out.println("Dados atualizados");
+			mostrarContato(contatos.get(indiceContato));
+		}else {
+			System.out.println("Contato inexistente");
+		}
+		 */
+	}
+
+
+	private static void mostrarContato(Contato contato) {
+		System.out.println("Dados do contato \n"
+				+ "Código: " + contato.getIdContato() + "\n"
+				+ "Nome: " + contato.getNomeContato() +"\n"
+				+ "Telefone: " + contato.getFoneContato() +"\n"
+				);
+
+	}
+
+
+	private static Contato pesquisarContato(ArrayList<Contato> contatos) {
+		Scanner ler = new Scanner(System.in);
+
+		System.out.println("Digite nome contato: ");
+		String nomePesquisar = ler.nextLine();
+
+		for (int i=0; i < contatos.size(); i++) {
+			if (contatos.get(i).getNomeContato().equalsIgnoreCase(nomePesquisar)) {
+				return contatos.get(i);
+
+			}
+		}
+
+		return null;
+	}
+
+	private static int pesquisarIndiceContato(ArrayList<Contato> contatos) {
+		Scanner ler = new Scanner(System.in);
+
+		System.out.println("Digite nome contato: ");
+		String nomePesquisar = ler.nextLine();
+
+		for (int i=0; i < contatos.size(); i++) {
+			if (contatos.get(i).getNomeContato().equalsIgnoreCase(nomePesquisar)) {
+				return i;
+
+			}
+		}
+
+		return -1;
+	}
+
+
+
+	private static void excluirContato() {
+		Scanner ler = new Scanner(System.in);
+
+		System.out.println("Digite nome contato: ");
+		String nomePesquisar = ler.nextLine();
+
+
+		Contato contato;
+		try {
+			contato = contatoDAO.pesquisarContatoBD(nomePesquisar);
+
+
+			if (contato != null) {
+				mostrarContato(contato);
+
+				System.out.println("Confirma exclusão s/n?");
+				char resp = ler.next().charAt(0);
+				if ( resp == 's' || resp == 'S') {
+					contatoDAO.deletarContatoBD(contato);
+
+					//contatos.remove(indiceContato);
+					System.out.println("Exclusão realizada com sucesso!");
+				}
+			}else {
+				System.out.println("Contato inexistente");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,87 @@
+
+import java.util.Scanner;
+
+public class BuscaBinaria {
+
+	public static void main(String[] args) {
+
+
+		int vetor[] = new int[10];
+
+		// vetor em posição ordenada
+
+		vetor[0] = 10;
+		vetor[1] = 16;
+		vetor[2] = 21;
+		vetor[3] = 31;
+		vetor[4] = 37;
+		vetor[5] = 43;
+		vetor[6] = 45;
+		vetor[7] = 48;
+		vetor[8] = 87;
+		vetor[9] = 99;
+
+		// imprime valores
+		for(int i =0; i<vetor.length;i++) {
+			System.out.println(+vetor[i]);
+		}
+
+		Scanner lerInt = new Scanner(System.in);
+		System.out.println("Qual número você busca? ");
+		int busca = lerInt.nextInt();
+		
+		
+
+		//Posição inicial vetor
+		int pInicio = 0;
+		
+		//Posição final vetor
+		int pFinal = vetor.length-1;
+		
+		// Posição meio
+		int pMeio;
+		
+		// inicializa boolean
+		boolean achou = false;
+
+		while(pInicio<=pFinal) {
+			pMeio = (int) ((pInicio+pFinal)/2);
+			if(vetor[pMeio] == busca) {
+				achou = true;
+				break;
+			}else if(vetor[pMeio] < busca) {
+				pInicio = pMeio+1; 
+			}else {
+				pInicio = pMeio-1;
+			}
+		}
+		
+		if(achou) {
+			System.out.println("Achou");
+		}else {
+			System.out.println("Não achou");
+		}
+	}
+}		
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

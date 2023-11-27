@@ -1,0 +1,216 @@
+package VetorOO;
+import java.util.Scanner;
+public class Principal {
+	static Scanner consoleString = new Scanner(System.in);
+	static Scanner console = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		Aluno aluno = new Aluno();
+
+		cadastraDados(aluno);
+		menu(aluno);
+
+	}
+	private static void menu(Aluno aluno) {
+		int op;
+
+		do {
+			op = lerOpcao();
+			switch(op) {
+			case 1: System.out.println(aluno.calcularMedia());
+			break;
+			case 2: System.out.println(aluno.mostrarDados());
+			break;
+			case 3: alterarDados(aluno);
+			break;
+			case 4: System.out.println("Sistema finalizado");
+			break;
+			}
+		}while(op!=4);
+	}
+
+	private static void cadastraDados(Aluno aluno) {
+		
+		System.out.println("Matricula: ");
+		aluno.setMatricula(console.nextInt());
+
+		System.out.println("Nome aluno: ");
+		aluno.setNomeAluno(consoleString.nextLine());
+
+		System.out.println("Nota 1: ");
+		aluno.setNota1(console.nextDouble());
+		System.out.println("Nota 2: ");
+		aluno.setNota2(console.nextDouble());
+		System.out.println("Nota 3: ");
+		aluno.setNota3(console.nextDouble());
+
+		System.out.println("Curso: ");
+		aluno.setCurso(consoleString.nextLine());
+	}
+	private static int lerOpcao() {
+		int op;
+
+		do {
+			System.out.println("\n1 - Mostrar Média"
+					+ "\n2 - Mostrar dados"
+					+ "\n3 - Alterar dados"
+					+ "\n4 - Finalizar sistema");
+			op = console.nextInt();
+
+			if(op<1 || op>4) {
+				System.out.println("Opção Inválida");
+			}
+		}while(op<1 || op>4);
+		return op;
+	}
+
+	private static void alterarDados(Aluno aluno) {
+		int op;
+
+		do {
+			System.out.println("Alterar: "
+					+ "n1 Curso"
+					+ "\n2 - Nota 1"
+					+ "\n3 - Nota 2"
+					+ "\n4 - Nota 3");
+
+			op = console.nextInt();
+
+			switch(op) {
+			case 1: String novoCurso = alteraCurso();
+			if(novoCurso != "") {
+				aluno.setCurso(novoCurso);
+			}
+			break;
+			case 2: Double novaNota = alteraNota();
+			if(novaNota != -1) {
+				aluno.setNota1(novaNota);
+			}
+			break;
+			case 3: novaNota = alteraNota();
+			if(novaNota != -1) {
+				aluno.setNota2(novaNota);
+			}
+			break;
+			case 4: novaNota = alteraNota();
+			if(novaNota != -1) {
+				aluno.setNota3(novaNota);
+			}
+			default: System.out.println("Opção inválida");
+			}
+		}while(op<1 || op>4);
+	}
+	private static String alteraCurso() {
+		System.out.println("Digite novo curso: ");
+		String novoCurso = console.nextLine();
+
+		System.out.println("Confirma alteração S/N: ");
+		char confirma = console.nextLine().charAt(0);
+
+		if(confirma == 'S' || confirma == 's') 
+			return novoCurso;
+		else
+			return "";
+	}
+	private static double alteraNota() {
+		Scanner console = new Scanner(System.in);
+		System.out.println("Digite nova nota: ");
+		Double novaNota = console.nextDouble();
+
+		System.out.println("Confirma alteração S/N: ");
+		char confirma = console.nextLine().charAt(0);
+
+		if(confirma == 'S' || confirma == 's') 
+			return novaNota;
+		else
+			return -1;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

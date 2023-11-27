@@ -1,0 +1,10 @@
+package Teste;
+
+public class TesteOO {
+	public double n [] = new double[10];
+	public int i;
+	public double numNegat;
+	public double numPosit;
+	
+}
+

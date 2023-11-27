@@ -1,0 +1,65 @@
+package AtividadesDesafios;
+import java.util.Scanner;
+
+public class Q3 {
+	
+	public static void main(String[]args) {
+		 
+	Compra com = new Compra();
+	
+	lerDados(com);
+	double soma = calcValor(com);
+	mostrarProdComprTotal(com,soma);
+	
+	}
+
+
+	public static void lerDados(Compra com) {
+		Scanner console = new Scanner(System.in);
+		for(com.i=0;com.i<=4;com.i++) {
+		
+			System.out.println(+com.i+1+". Digite nome do produto");
+			com.nomeProd[com.i] = console.nextLine();
+		}
+			
+		for(com.i=0;com.i<=4;com.i++) {
+			System.out.println(+com.i+1+". Digite valor do produto: ");
+			com.valorProd = Double.parseDouble(console.nextLine());
+		}
+	}
+	
+	public static double calcValor(Compra com) {
+		double soma =0;
+		soma = soma+com.valorProd;
+		return soma;
+	}
+	
+	public static void mostrarProdComprTotal(Compra com, double soma) {
+		for(com.i=0;com.i<=4;com.i++) {
+		
+			System.out.println("Produto comprados: "+com.nomeProd[com.i]+
+							"\n1Valores do produtos: R$"+com.valorProd+
+							"\nTotal: R$"+soma);
+		}
+	}
+}
+		
+	
+
+
+		
+	
+
+
+
+			
+		
+	
+		
+	
+
+	
+	
+	
+	 
+		

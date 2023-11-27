@@ -1,0 +1,52 @@
+package Teste;
+
+public class TesteOO {
+	double[] n = new double[10];
+	int i;
+	
+}
+
+package Teste;
+
+import java.util.Scanner;
+
+public class Teste{
+	public static void main(String[]args) {
+		
+		lerDados();
+		
+	}
+	
+	public static void lerDados() {
+		Scanner console = new Scanner(System.in);
+		System.out.println("Digite número inicial da P.A: ");
+		int numI = console.nextInt();
+		System.out.println("Digite razão da P.A: ");
+		int razao = console.nextInt();
+		System.out.println("Digite número de termos da P.A: ");
+		int nTermos = console.nextInt();
+	
+		int result = calculaPa(numI,razao,nTermos);
+		mostrarResult(result);
+	}
+
+
+	public static int calculaPa(int numI, int razao, int nTermos) {
+
+		int i = 0;
+		int resultado = numI;
+
+		if (i == nTermos) {
+			return 1;
+		
+		}else{
+	
+			return resultado+calculaPa(numI + razao, --nTermos,razao);
+		}
+	}
+
+	public static void mostrarResult(int result) {
+		System.out.println(+result);
+	}
+}
+
